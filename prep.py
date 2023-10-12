@@ -33,7 +33,7 @@ class City:
         s = City.compute_price(city1, city2)
         v = City.net_velocity
         result = s / v * 1000
-        return round(int(result.kilometers), 3)
+        return round(float(result.kilometers), 2)
 
     @staticmethod
     def api_call(city_name, country):
@@ -68,5 +68,5 @@ for city in cities:
     print(city)
 
 
-print(City.compute_delay(cities[0], cities[1]))
-
+print(City.compute_delay(cities[0], cities[3]))
+print(City.compute_delay(cities[9], cities[3]))
