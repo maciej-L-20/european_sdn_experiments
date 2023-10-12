@@ -45,4 +45,5 @@ for city in cities:
     citiesDict[city.name] = cities
     print(city)
 
-print(City.compute_distance(cities[0], cities[1]))
+print(City.compute_distance(cities[1], cities[6]))
+print(City.compute_distance(cities[0], cities[6]))

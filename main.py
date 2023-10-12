@@ -1,16 +1,36 @@
 from mininet.net import Mininet
+from mininet.topo import Topo
 from mininet.topolib import TreeTopo
 
-tree_depth = 2
-tree_fanout = 2
+cityFile = open("cities", "r")
 
-tree = TreeTopo(depth=tree_depth, fanout=tree_fanout)
-net = Mininet(topo=tree)
-net.start()
 
-#To access different hosts you access the net.hosts array containing mininet.node.Host
-print(type(net.hosts[0]))
+class MyTopo(Topo):
 
-h1, h4 = net.hosts[0], net.hosts[3]
-print(h1.cmd('ping -c1 %s' % h4.IP()))
-net.stop()
+    # Pętla na dodawanie switchy i hostów
+    # Switche do zbioru
+
+    def build(self):
+        lineNumber = 0
+        cityDict = {}
+        for line in cityFile:
+            line = line.strip()
+            apiInput = line.split(sep=",")
+            tempHost = self.addHost(f'h{lineNumber}')
+            tempSwitch = self.addSwitch(f's{lineNumber}')
+            self.addLink(tempHost, tempSwitch)
+            cityDict[apiInput[0]] = tempSwitch
+            lineNumber += 1
+
+        self.addLink(cityDict['Berlin'], cityDict['Warsaw'])
+        self.addLink(cityDict['Berlin'], cityDict['Paris'])
+        self.addLink(cityDict['Berlin'], cityDict['London'])
+        self.addLink(cityDict['Vilnus'], cityDict['Warsaw'])
+        self.addLink(cityDict['Zagreb'], cityDict['Warsaw'])
+        self.addLink(cityDict['Monako'], cityDict['Paris'])
+        self.addLink(cityDict['Bern'], cityDict['Paris'])
+        self.addLink(cityDict['Dublin'], cityDict['London'])
+        self.addLink(cityDict['Oslo'], cityDict['London'])
+
+
+topos = {'mytopo': (lambda: MyTopo())}
