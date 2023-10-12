@@ -7,6 +7,8 @@ geoFile = open("cities", "r")
 
 
 class City:
+    net_velocity = 200_000
+
     def __init__(self, name, lat, longt):
         self.name = name
         self.latitude = lat
@@ -24,6 +26,26 @@ class City:
     @staticmethod
     def compute_price(city1, city2):
         return City.compute_distance(city1, city2) * math.sqrt(2)
+
+    # returns in miliseconds
+    @staticmethod
+    def compute_delay(city1, city2):
+        s = City.compute_price(city1, city2)
+        v = City.net_velocity
+        result = s / v * 1000
+        return round(int(result.kilometers), 3)
+
+    @staticmethod
+    def api_call(city_name, country):
+        api_url = f'https://api.api-ninjas.com/v1/geocoding?city={city_name}&country={country}'
+        response = requests.get(api_url, headers={'X-Api-Key': 'w0qGONkv1CQxwMDfPwvLKQ==2ueGevHx4PUChvKk'})
+        if response.status_code != requests.codes.ok or len(response.json()) == 0:
+            print("Error:", response.status_code, response.text)
+            exit(123)
+        apiResponse = response.json()[0]
+        return City(apiResponse["name"], apiResponse["latitude"], apiResponse["longitude"])
+
+
 
 
 cities = []
@@ -45,5 +67,6 @@ for city in cities:
     citiesDict[city.name] = cities
     print(city)
 
-print(City.compute_distance(cities[1], cities[6]))
-print(City.compute_distance(cities[0], cities[6]))
+
+print(City.compute_delay(cities[0], cities[1]))
+
