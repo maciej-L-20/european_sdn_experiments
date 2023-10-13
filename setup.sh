@@ -1,4 +1,4 @@
-#/usr/bin/bash
+#!/usr/bin/bash
 
 
 sudo rm -f main.py 2>/dev/null
