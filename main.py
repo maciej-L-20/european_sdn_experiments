@@ -4,13 +4,21 @@ from prep import City
 from mininet.topolib import TreeTopo
 
 cityFile = open("cities", "r")
-
-
+linksFile = open("links","r")
 class MyTopo(Topo):
+
+    def add_links(self,switches,cities):
+        for line in linksFile:
+            line = line.strip()
+            linkedCities = line.split(sep=",")
+            linkBw = int(linkedCities[2])
+            linkDelay = City.compute_delay(cities[linkedCities[0]],cities[linkedCities[1]])
+            self.addLink(switches[linkedCities[0]],switches[linkedCities[1]],bw=linkBw,delay=f'{linkDelay}ms')
+
 
     def build(self):
         lineNumber = 0
-        cityDict = {}
+        switches = {}
         cities = {}
         for line in cityFile:
             line = line.strip()
@@ -19,18 +27,9 @@ class MyTopo(Topo):
             tempHost = self.addHost(f'h{lineNumber}')
             tempSwitch = self.addSwitch(f's{lineNumber}')
             self.addLink(tempHost, tempSwitch)
-            cityDict[apiInput[0]] = tempSwitch
+            switches[apiInput[0]] = tempSwitch
             lineNumber += 1
 
-        self.addLink(cityDict['Berlin'], cityDict['Warsaw'],bw=10, delay=f'{City.compute_delay(cities["Berlin"], cities["Warsaw"])}ms')
-        self.addLink(cityDict['Berlin'], cityDict['Paris'],bw=10, delay=f'{City.compute_delay(cities["Berlin"], cities["Paris"])}ms')
-        self.addLink(cityDict['Berlin'], cityDict['London'],bw=10, delay=f'{City.compute_delay(cities["Berlin"], cities["London"])}ms')
-        self.addLink(cityDict['Vilnus'], cityDict['Warsaw'],bw=10, delay=f'{City.compute_delay(cities["Vilnus"], cities["Warsaw"])}ms')
-        self.addLink(cityDict['Zagreb'], cityDict['Warsaw'],bw=10, delay=f'{City.compute_delay(cities["Zagreb"], cities["Warsaw"])}ms')
-        self.addLink(cityDict['Monako'], cityDict['Paris'],bw=10, delay=f'{City.compute_delay(cities["Monako"], cities["Paris"])}ms')
-        self.addLink(cityDict['Bern'], cityDict['Paris'],bw=10, delay=f'{City.compute_delay(cities["Bern"], cities["Paris"])}ms')
-        self.addLink(cityDict['Dublin'], cityDict['London'],bw=10, delay=f'{City.compute_delay(cities["Dublin"], cities["London"])}ms')
-        self.addLink(cityDict['Oslo'], cityDict['London'],bw=10, delay=f'{City.compute_delay(cities["Oslo"], cities["London"])}ms')
-
+        self.add_links(switches,cities)
 
 topos = {'mytopo': (lambda: MyTopo())}

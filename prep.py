@@ -46,27 +46,16 @@ class City:
         return City(apiResponse["name"], apiResponse["latitude"], apiResponse["longitude"])
 
 
-
-
-cities = []
-
-for line in geoFile:
-    line = line.strip()
-    apiInput = line.split(sep=",")
-    api_url = f'https://api.api-ninjas.com/v1/geocoding?city={apiInput[0]}&country={apiInput[1]}'
-    response = requests.get(api_url, headers={'X-Api-Key': 'w0qGONkv1CQxwMDfPwvLKQ==2ueGevHx4PUChvKk'})
-    if response.status_code != requests.codes.ok or len(response.json()) == 0:
-        print("Error:", response.status_code, response.text)
-        exit(123)
-    apiResponse = response.json()[0]
-    cities.append(City(apiResponse["name"], apiResponse["latitude"], apiResponse["longitude"]))
-
-citiesDict = {}
-
-for city in cities:
-    citiesDict[city.name] = cities
-    print(city)
-
-
-print(City.compute_delay(cities[0], cities[3]))
-print(City.compute_delay(cities[9], cities[3]))
+def read_cities():
+    cities = {}
+    for line in geoFile:
+        line = line.strip()
+        apiInput = line.split(sep=",")
+        api_url = f'https://api.api-ninjas.com/v1/geocoding?city={apiInput[0]}&country={apiInput[1]}'
+        response = requests.get(api_url, headers={'X-Api-Key': 'w0qGONkv1CQxwMDfPwvLKQ==2ueGevHx4PUChvKk'})
+        if response.status_code != requests.codes.ok or len(response.json()) == 0:
+            print("Error:", response.status_code, response.text)
+            exit(123)
+        apiResponse = response.json()[0]
+        cities[apiResponse["name"]] = City(apiResponse["name"], apiResponse["latitude"], apiResponse["longitude"])
+    return cities
