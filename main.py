@@ -32,4 +32,5 @@ class MyTopo(Topo):
 
         self.add_links(switches,cities)
 
+
 topos = {'mytopo': (lambda: MyTopo())}
