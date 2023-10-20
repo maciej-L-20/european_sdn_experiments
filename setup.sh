@@ -11,4 +11,4 @@ sudo wget "http://$1:8000/prep.py"
 sudo wget "http://$1:8000/cities"
 
 sudo mv prep.py /usr/lib/python3.8
-sudo mn --custom=main.py --topo mytopo --link tc
+sudo -E mn --custom=main.py --topo mytopo --link tc
