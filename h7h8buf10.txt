@@ -1,0 +1,21 @@
+------------------------------------------------------------
+Client connecting to 10.0.0.8, TCP port 5678 with pid 13277
+Write buffer size: 10.0 Byte
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.9 port 56134 connected with 10.0.0.8 port 5678 (ct=48.05 ms)
+[ ID] Interval            Transfer    Bandwidth       Write/Err  Rtry     Cwnd/RTT        NetPwr
+[  3] 0.0000-1.0000 sec  3.49 MBytes  29.2 Mbits/sec  365491/0          0       14K/48010 us  76.13
+[  3] 1.0000-2.0000 sec  3.20 MBytes  26.9 Mbits/sec  335931/0          0      302K/107824 us  31.16
+[  3] 2.0000-3.0000 sec  3.83 MBytes  32.2 Mbits/sec  401957/0          0      455K/126636 us  31.74
+[  3] 3.0000-4.0000 sec  3.50 MBytes  29.4 Mbits/sec  366931/0          0      598K/200740 us  18.28
+[  3] 4.0000-5.0000 sec  3.60 MBytes  30.2 Mbits/sec  377928/0          0      774K/209256 us  18.06
+[  3] 5.0000-6.0000 sec  3.53 MBytes  29.6 Mbits/sec  369927/0          0      930K/252236 us  14.67
+[  3] 6.0000-7.0000 sec  3.14 MBytes  26.4 Mbits/sec  329628/0          0     1042K/344710 us  9.56
+[  3] 7.0000-8.0000 sec  2.84 MBytes  23.8 Mbits/sec  297842/0          0     1192K/409989 us  7.26
+[  3] 8.0000-9.0000 sec  4.48 MBytes  37.6 Mbits/sec  470270/0          0     1343K/371432 us  12.66
+[  3] 9.0000-10.0000 sec  2.58 MBytes  21.7 Mbits/sec  270823/0          0     1483K/495951 us  5.46
+[  3] 10.0000-11.0000 sec  4.57 MBytes  38.3 Mbits/sec  478798/0          0     1643K/482633 us  9.92
+[  3] 11.0000-12.0000 sec  2.29 MBytes  19.2 Mbits/sec  240589/0          0     1778K/616312 us  3.90
+[  3] 12.0000-13.0000 sec  4.58 MBytes  38.4 Mbits/sec  479904/0          0     1934K/559175 us  8.58
+[  3] 0.0000-13.9604 sec  50.0 MBytes  30.0 Mbits/sec  5242881/0          0       -1K/351774 us  10.68

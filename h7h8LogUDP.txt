@@ -1,0 +1,14 @@
+------------------------------------------------------------
+Server listening on UDP port 2137 with pid 2436
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.8 port 2137 connected with 10.0.0.9 port 55878
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-9.9551 sec  1.25 MBytes  1.05 Mbits/sec   0.702 ms    0/  892 (0%) 22.806/20.790/59.463/ 2.840 ms   89 pps  5.78
+[  4] local 10.0.0.8 port 2137 connected with 10.0.0.9 port 33782
+[  4] 0.0000-10.0009 sec  21.0 MBytes  17.6 Mbits/sec   0.583 ms    0/15000 (0%) 26.829/21.502/50.943/ 2.471 ms 1499 pps  82.18
+[  3] local 10.0.0.8 port 2137 connected with 10.0.0.9 port 37586
+[  3] 0.0000-10.8201 sec  30.3 MBytes  23.5 Mbits/sec   0.771 ms 13393/35000 (38%) 2629.668/35.861/4504.874/1270.643 ms 1996 pps  1.12
+[  4] local 10.0.0.8 port 2137 connected with 10.0.0.9 port 38445
+[  4] 0.0000-12.8548 sec  31.9 MBytes  20.8 Mbits/sec  196.625 ms 22282/45005 (50%) 4036.384/34.097/6889.810/1994.078 ms 1767 pps  0.64

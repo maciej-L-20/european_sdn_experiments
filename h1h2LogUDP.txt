@@ -1,0 +1,14 @@
+------------------------------------------------------------
+Server listening on UDP port 1212 with pid 2543
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.2 port 1212 connected with 10.0.0.3 port 48107
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-10.0034 sec  1.25 MBytes  1.05 Mbits/sec   0.447 ms    0/  892 (0%) 12.132/10.827/25.456/ 0.928 ms   89 pps  10.80
+[  4] local 10.0.0.2 port 1212 connected with 10.0.0.3 port 46722
+[  4] 0.0000-9.9980 sec  21.0 MBytes  17.6 Mbits/sec   0.374 ms    0/15000 (0%) 17.723/10.541/41.628/ 6.198 ms 1500 pps  124.44
+[  3] local 10.0.0.2 port 1212 connected with 10.0.0.3 port 37235
+[  3] 0.0000-10.5503 sec  45.3 MBytes  36.0 Mbits/sec   0.352 ms 2702/35001 (7.7%) 542.058/17.028/1373.283/400.442 ms 3061 pps  8.30
+[  4] local 10.0.0.2 port 1212 connected with 10.0.0.3 port 47206
+[  4] 0.0000-11.9912 sec  32.4 MBytes  22.7 Mbits/sec  199.089 ms 21868/45004 (49%) 3496.492/15.678/6054.870/1770.563 ms 1929 pps  0.81

@@ -3,7 +3,7 @@
 
 sudo rm -f main.py 2>/dev/null
 sudo rm -f cities 2>/dev/null
-sudo rm -f links 2>/dev/nul
+sudo rm -f links 2>/dev/null
 sudo rm -f /usr/lib/python3.8/prep.py 2>/dev/null
 sudo pip3 install requests
 sudo pip3 install geopy

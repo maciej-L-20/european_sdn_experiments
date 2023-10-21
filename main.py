@@ -14,7 +14,7 @@ class MyTopo(Topo):
             linkBw = int(linkedCities[2])
             linkDelay = City.compute_delay(cities[linkedCities[0]],cities[linkedCities[1]])
             print(linkDelay)
-            self.addLink(switches[linkedCities[0]],switches[linkedCities[1]],bw=linkBw,delay=f'{linkDelay}ms', loss=10)
+            self.addLink(switches[linkedCities[0]],switches[linkedCities[1]],bw=linkBw,delay=f'{linkDelay}ms')
 
 
     def build(self):
