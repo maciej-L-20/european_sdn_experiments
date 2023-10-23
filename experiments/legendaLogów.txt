@@ -1,0 +1,100 @@
+legendaLogów
+____________________________________________________________________________________________________
+
+Exp1
+
+Na czym polega?
+Z hostów nie powiązanych ze sobą żadnymi łączami wysyłamy ruch do wspólnego switcha
+
+z h8, h9, h1 do h3
+
+Obserwacja:
+Z uwagi na to, że ruch przepływa różnymi łączami to nasz switch nie zostaje przeciążony ???????????????
+
+Wykonany dla tcp i udp
+
+Jak wyglądają logi:
+
+a) TCP
+logEXP1h1.lg
+logEXP1h3.lg <---- serwerLOG
+logEXP1h8.lg
+logEXP1h9.lg
+
+b) UDP
+logEXP1UDPh1.lg
+logEXP1UDPh3.lg <------ serwerLOG
+logEXP1UDPh8.lg
+logEXP1UDPh9.lg
+
+_________________________________________________________________________________________
+
+
+Exp 2
+Z jednego switcha wysyłamy ruch do 3 hostów nie powiązanych żadnym łączem
+
+
+z h3 do h8, h9, h1
+
+Obserwacja:
+Z uwagi na to, że ruch przepływa różnymi łączami to nasz host nie zostają przeciążone ??????????
+
+Jak wyglądają logi:
+a) TCP
+serwerLOGI
+logEXP2h8.lg
+logEXP2h9.lg
+logEXP2h1.lg
+clientLOGI
+logEXP2h38.lg
+logEXP2h39.lg
+logEXP2h31.lg
+
+
+b) UDP
+serwerLOGI
+logEXP2UDPh8.lg
+logEXP2UDPh9.lg
+logEXP2UDPh1.lg
+clientLOGI
+logEXP2UDPh38.lg
+logEXP2UDPh39.lg
+logEXP2UDPh31.lg
+__________________________________________________________________________________________
+
+
+Exp3
+
+Z dwóch hostów ze wspólnym łączem wysyłamy ruch do hosta stojącego za switchem łączącym te hosty
+z h6, h7 przez h2 do h0
+
+a) TCP
+logEXP3h0.lg <--- serwer log
+logEXP3h6.lg
+logEXP3h7.lg
+
+b) UDP
+logEXP3UDPh0.lg <--- serwer log
+logEXP3UDPh6.lg
+logEXP3UDPh7.lg
+
+_________________________________________________________________________________________
+
+
+Exp4
+
+Ruch z dwóch hostów bez wspólnego łącza przebiegający przez wspólny switch do dwóch różnych miejsc
+z h5 do h3  ,   z h4 do h0 przez h1
+
+a) TCP
+logEXP4h3.lg
+logEXP4h5.lg
+logEXP4h4.lg <---- serwerlog
+logEXP4h0.lg <---- serwerlog
+
+b) UDP
+logEXP4UDPh3.lg
+logEXP4UDPh4.lg <---- serwerlog
+logEXP4UDPh0.lg <---- serwerlog
+logEXP4UDPh5.lg
+

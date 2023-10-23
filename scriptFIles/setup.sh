@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-
 sudo rm -f main.py 2>/dev/null
 sudo rm -f cities 2>/dev/null
 sudo rm -f links 2>/dev/null

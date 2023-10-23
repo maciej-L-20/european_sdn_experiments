@@ -4,7 +4,7 @@ import cartopy.feature as cfeature
 
 import prep
 from prep import City
-linkFile = open("links","r")
+linkFile = open("links", "r")
 def map_config():
     fig = plt.figure(figsize=(10,10))
     ax = fig.add_subplot(1, 1, 1, projection=ccrs.PlateCarree())

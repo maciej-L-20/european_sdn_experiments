@@ -1,0 +1,4 @@
+h3 iperf -e -s -p 3789 > logEXP1h3.lg&
+h8 iperf -e -c h3 -p 3789 -i 1 -N -S 0x08 -n 50M -l 10M > logEXP1h8.lg
+h9 iperf -e -c h3 -p 3789 -i 1 -N -S 0x08 -n 50M -l 10M > logEXP1h9.lg
+h1 iperf -e -c h3 -p 3789 -i 1 -N -S 0x08 -n 50M -l 10M > logEXP1h1.lg

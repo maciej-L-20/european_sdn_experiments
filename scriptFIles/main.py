@@ -4,7 +4,7 @@ from prep import City
 from mininet.topolib import TreeTopo
 
 cityFile = open("cities", "r")
-linksFile = open("links","r")
+linksFile = open("links", "r")
 class MyTopo(Topo):
 
     def add_links(self,switches,cities):
