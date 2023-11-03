@@ -25,8 +25,8 @@ class MyTopo(Topo):
             line = line.strip()
             apiInput = line.split(sep=",")
             cities[apiInput[0]] = City.api_call(apiInput[0], apiInput[1])
-            tempHost = self.addHost(f'h{lineNumber}')
-            tempSwitch = self.addSwitch(f's{lineNumber}')
+            tempHost = self.addHost(f'h{lineNumber+1}')
+            tempSwitch = self.addSwitch(f's{lineNumber+1}')
             self.addLink(tempHost, tempSwitch)
             switches[apiInput[0]] = tempSwitch
             lineNumber += 1
