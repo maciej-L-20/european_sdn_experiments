@@ -1,0 +1,1 @@
+sudo -E mn --custom=main.py --topo mytopo --link tc --mac --controler=remote
