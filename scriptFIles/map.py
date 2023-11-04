@@ -19,15 +19,17 @@ def map_config():
         ax.text(city.longitude-1, city.latitude+0.5, f'{index}.{city.name}', transform=ccrs.PlateCarree(), fontsize=12, color='black',label=f'{index}.{city.name}')
         index+=1
 
+    lineIndex=1
     for line in linkFile:
         line = line.strip()
         linkInput = line.split(sep=",")
         city1 = cities[linkInput[0]]
         city2 = cities[linkInput[1]]
-        ax.plot([city1.longitude, city2.longitude], [city1.latitude, city2.latitude], 'k-',alpha = 0.2,transform=ccrs.PlateCarree())
+        color = lambda lineIndex: "green" if lineIndex > 9 else "black"
+        ax.plot([city1.longitude, city2.longitude], [city1.latitude, city2.latitude], alpha = 0.4,transform=ccrs.PlateCarree(),color=color(lineIndex))
         delay = City.compute_delay(city1,city2)
         ax.text(0.5 * (city1.longitude+city2.longitude), 0.5 * (city1.latitude+city2.latitude)+0.2, delay, transform=ccrs.PlateCarree(), fontsize=8,weight='bold', color='red')
-
+        lineIndex+=1
     plt.savefig('mapa.png')
 
 map_config()

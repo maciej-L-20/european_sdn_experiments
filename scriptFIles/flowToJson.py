@@ -1,5 +1,5 @@
 import json
-
+import requests
 def add_flow(jsonData,switchId, destHost, outPort):
     switchNumber=int(switchId[1:])
     switchHex=hex(switchNumber)[2:]
@@ -34,14 +34,30 @@ def add_flow(jsonData,switchId, destHost, outPort):
     }
     jsonData["flows"].append(nowy_flow)
 
-def read_flow_file(inputFile,outPutFile):
+def read_flow_file(roadFile,portMapJson):
     jsonData = {"flows": []}
-    flowFile = open(inputFile,"r")
+    flowFile = open(roadFile,"r")
+    portMap = json.load(open(portMapJson,'r'))
     for line in flowFile:
         flowData = line.strip().split(" ")
-        add_flow(jsonData,flowData[0],flowData[1],flowData[2])
-    json_data = json.dumps(jsonData, indent=4)
-    json_file = open(outPutFile,"w")
-    json_file.write(json_data)
+        destination=flowData[len(flowData)-1]
+        for device in flowData[:len(flowData)]:
+            devIndex = int(device[1:])-1
+            nextDevIndex= int(device[1:])-1
+            devPorts = portMap[devIndex]["ports"]
+            #jak uzyskać następny device, metoda ma printować kolejne porty
+            port = devPorts.index()
+            print(devPorts)
+            #add_flow(jsonData,device,destination,flowData[2])
+    #json_data = json.dumps(jsonData, indent=4)
+    #return json_data
+""""
+headers = {
+   "Content-Type": "application/json",
+    "Accept": "application/json"
+}
+auth = ("onos", "rocks")
+requests.post("http://192.168.67.19:8181/onos/v1/flows",data=read_flow_file("WarsawParis.txt"),headers=headers,auth=auth)
+"""
 
-read_flow_file("WarsawParis.txt","h2h3.json")
+read_flow_file("WarsawParis.txt","portmap.json")

@@ -13,6 +13,15 @@ class City:
         self.name = name
         self.latitude = lat
         self.longitude = longt
+        self.index = 0
+        self.ports=[]
+
+    def do_json(self):
+        # Tworzymy kopię słownika __dict__ obiektu i usuwamy niechciane atrybuty
+        serializable_dict = self.__dict__.copy()
+        del serializable_dict['latitude']
+        del serializable_dict['longitude']
+        return serializable_dict
 
     def __str__(self):
         return f"{self.name}, {self.latitude}, {self.longitude}"
