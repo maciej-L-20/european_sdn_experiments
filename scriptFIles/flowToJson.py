@@ -5,7 +5,7 @@ def add_flow(jsonData,switchId, destHost, outPort):
     switchHex=hex(switchNumber)[2:]
     deviceId = f'of:000000000000000{switchHex}'
     destHost=f'10.0.0.{destHost[1:]}/32'
-    port = outPort[1:]
+    port = outPort
     nowy_flow = {
         "priority": 40000,
         "timeout": 0,
@@ -41,23 +41,31 @@ def read_flow_file(roadFile,portMapJson):
     for line in flowFile:
         flowData = line.strip().split(" ")
         destination=flowData[len(flowData)-1]
-        for device in flowData[:len(flowData)]:
-            devIndex = int(device[1:])-1
-            nextDevIndex= int(device[1:])-1
-            devPorts = portMap[devIndex]["ports"]
-            #jak uzyskać następny device, metoda ma printować kolejne porty
-            port = devPorts.index()
-            print(devPorts)
-            #add_flow(jsonData,device,destination,flowData[2])
-    #json_data = json.dumps(jsonData, indent=4)
-    #return json_data
-""""
-headers = {
+        print(destination)
+        for i in range(len(flowData)-1):
+            device = flowData[i]
+            nextDevice = flowData[i+1]
+            outPort = findOutPort(device,nextDevice,portMap)
+            add_flow(jsonData,device,destination,outPort)
+    json_data = json.dumps(jsonData, indent=4)
+    return json_data
+
+def findOutPort(device,nextDevice,portMap):
+    devIndex = int(device[1:])
+    print(devIndex)
+    devPorts = portMap[devIndex - 1]["ports"]
+    for port in devPorts:
+        if port == nextDevice:
+            return devPorts.index(port)
+    return 0
+
+def postFlow(flowFile,portMap,ip):
+    headers = {
    "Content-Type": "application/json",
     "Accept": "application/json"
-}
-auth = ("onos", "rocks")
-requests.post("http://192.168.67.19:8181/onos/v1/flows",data=read_flow_file("WarsawParis.txt"),headers=headers,auth=auth)
-"""
+    }
+    auth = ("onos", "rocks")
+    requests.post(f'http://{ip}:8181/onos/v1/flows',data=read_flow_file(flowFile,portMap),headers=headers,auth=auth)
 
-read_flow_file("WarsawParis.txt","portmap.json")
+portMap = "portmap.json"
+postFlow("VilniusDublin.txt",portMap,"192.168.67.19")

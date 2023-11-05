@@ -1,0 +1,116 @@
+[
+  {
+    "name": "Prague",
+    "index": 1,
+    "ports": [
+      "null",
+      "h1",
+      "s3",
+      "s2",
+      "s6"
+    ]
+  },
+  {
+    "name": "Paris",
+    "index": 2,
+    "ports": [
+      "null",
+      "h2",
+      "s4",
+      "s1",
+      "s5",
+      "s6"
+    ]
+  },
+  {
+    "name": "Warsaw",
+    "index": 3,
+    "ports": [
+      "null",
+      "h3",
+      "s1",
+      "s7",
+      "s8",
+      "s4"
+    ]
+  },
+  {
+    "name": "London",
+    "index": 4,
+    "ports": [
+      "null",
+      "h4",
+      "s2",
+      "s9",
+      "s10",
+      "s3"
+    ]
+  },
+  {
+    "name": "Monaco",
+    "index": 5,
+    "ports": [
+      "null",
+      "h5",
+      "s2",
+      "s6",
+      "s9"
+    ]
+  },
+  {
+    "name": "Bern",
+    "index": 6,
+    "ports": [
+      "null",
+      "h6",
+      "s2",
+      "s8",
+      "s1",
+      "s5"
+    ]
+  },
+  {
+    "name": "Vilnius",
+    "index": 7,
+    "ports": [
+      "null",
+      "h7",
+      "s3",
+      "s10",
+      "s8"
+    ]
+  },
+  {
+    "name": "Lviv",
+    "index": 8,
+    "ports": [
+      "null",
+      "h8",
+      "s3",
+      "s7",
+      "s6"
+    ]
+  },
+  {
+    "name": "Dublin",
+    "index": 9,
+    "ports": [
+      "null",
+      "h9",
+      "s4",
+      "s10",
+      "s5"
+    ]
+  },
+  {
+    "name": "Oslo",
+    "index": 10,
+    "ports": [
+      "null",
+      "h10",
+      "s4",
+      "s9",
+      "s7"
+    ]
+  }
+]
