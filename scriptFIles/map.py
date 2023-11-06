@@ -13,11 +13,9 @@ def map_config():
     ax.add_feature(cfeature.BORDERS, linestyle=':',alpha=0.3)
     cities = prep.read_cities()
 
-    index = 1
     for city in cities.values():
         ax.plot(city.longitude,city.latitude,marker='o', markersize=5, color='black')
-        ax.text(city.longitude-1, city.latitude+0.5, f'{index}.{city.name}', transform=ccrs.PlateCarree(), fontsize=12, color='black',label=f'{index}.{city.name}')
-        index+=1
+        ax.text(city.longitude-1, city.latitude+0.5, f'{city.index}.{city.name}', transform=ccrs.PlateCarree(), fontsize=12, color='black',label=f'{city.index}.{city.name}')
 
     lineIndex=1
     for line in linkFile:

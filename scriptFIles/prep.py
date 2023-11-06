@@ -2,19 +2,21 @@ import math
 
 import requests
 import geopy.distance
+import json
 
 geoFile = open("cities", "r")
 
-#TODO metoda do przekształcania pliku links na plik z indeksami i bw
+
+# TODO metoda do przekształcania pliku links na plik z indeksami i bw
 class City:
     net_velocity = 200_000
 
-    def __init__(self, name, lat, longt):
+    def __init__(self, name, lat, longt, index=0):
         self.name = name
         self.latitude = lat
         self.longitude = longt
-        self.index = 0
-        self.ports=[]
+        self.index = index
+        self.ports = []
 
     def do_json(self):
         # Tworzymy kopię słownika __dict__ obiektu i usuwamy niechciane atrybuty
@@ -57,7 +59,9 @@ class City:
 
 def read_cities():
     cities = {}
-    for line in geoFile:
+    index = 1
+    geoFile2 = open("cities", "r")
+    for line in geoFile2:
         line = line.strip()
         apiInput = line.split(sep=",")
         api_url = f'https://api.api-ninjas.com/v1/geocoding?city={apiInput[0]}&country={apiInput[1]}'
@@ -66,5 +70,30 @@ def read_cities():
             print("Error:", response.status_code, response.text)
             exit(123)
         apiResponse = response.json()[0]
-        cities[apiResponse["name"]] = City(apiResponse["name"], apiResponse["latitude"], apiResponse["longitude"])
+        cities[apiResponse["name"]] = City(apiResponse["name"], apiResponse["latitude"], apiResponse["longitude"],
+                                           index)
+        index += 1
     return cities
+
+
+def linksToGraphFile(links):
+    linkFile = open(links, 'r')
+    cities = read_cities()
+    graph = {}
+    for city in cities.values():
+        graph[f's{city.index}'] = []
+    for line in linkFile:
+        line = line.strip()
+        linkInput = line.split(sep=",")
+        city1 = cities[linkInput[0]]
+        city2 = cities[linkInput[1]]
+        bw = linkInput[2]
+        delay = City.compute_delay(city1, city2)
+        graph[f's{city1.index}'].append([f's{city2.index}', bw, delay])
+        graph[f's{city2.index}'].append([f's{city1.index}', bw, delay])
+    output_file = open("graphLinks.json", 'w')
+    return json.dump(graph, output_file)
+
+
+cities = read_cities()
+print(cities)
