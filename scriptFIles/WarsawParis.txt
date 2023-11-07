@@ -1,1 +1,3 @@
 s3 s2 s1 h1
+h3 h2 TCP zajętość łączy
+h3 h2 UDP parametr: podajemy przepustowość którą chce wysyłać, szukamy najniższy delay

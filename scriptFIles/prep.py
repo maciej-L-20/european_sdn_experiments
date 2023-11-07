@@ -87,7 +87,7 @@ def linksToGraphFile(links):
         linkInput = line.split(sep=",")
         city1 = cities[linkInput[0]]
         city2 = cities[linkInput[1]]
-        bw = linkInput[2]
+        bw = int(linkInput[2])
         delay = City.compute_delay(city1, city2)
         graph[f's{city1.index}'].append([f's{city2.index}', bw, delay])
         graph[f's{city2.index}'].append([f's{city1.index}', bw, delay])
@@ -95,5 +95,4 @@ def linksToGraphFile(links):
     return json.dump(graph, output_file)
 
 
-cities = read_cities()
-print(cities)
+linksToGraphFile("links")
