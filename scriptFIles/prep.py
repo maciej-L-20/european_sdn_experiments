@@ -7,7 +7,6 @@ import json
 geoFile = open("cities", "r")
 
 
-# TODO metoda do przekształcania pliku links na plik z indeksami i bw
 class City:
     net_velocity = 200_000
 
