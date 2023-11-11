@@ -1,15 +1,8 @@
-#TODO: 1. aktualizacja grafu
-#TODO: 2. terminal
-#TODO: 3. wysyłanie onosowi
-
-
 import heapq
 import json
 
 graph_file = open('graphLinks.json', 'r')
 start_graph = json.load(graph_file)
-tcp_graph = start_graph[:]
-udp_graph = start_graph[:]
 
 def bw_dijkstra(graph, start):
     # Inicjalizacja odległości od startowego wierzchołka do pozostałych
@@ -37,7 +30,7 @@ def bw_dijkstra(graph, start):
                 distances[neighbor][1] = current_path
                 distances[neighbor][2] = delay_distance
                 heapq.heappush(priority_queue, (distance, neighbor, delay_distance))
-    for node,key in distances.items():
+    for node, key in distances.items():
         key_copy = key[1][:]
         key_copy.append(node)
         key_copy.append(f'h{node[1]}')
@@ -73,7 +66,7 @@ def delay_dijkstra(graph, start):
                 distances[neighbor][2] = bw_distance
                 heapq.heappush(priority_queue, (distance, neighbor, bw_distance))
 
-    for node,key in distances.items():
+    for node, key in distances.items():
         key_copy = key[1][:]
         key_copy.append(node)
         key_copy.append(f'h{node[1]}')
@@ -81,10 +74,42 @@ def delay_dijkstra(graph, start):
     return distances
 
 
-def process_stream(src,dest,type,graph,bw=0):
-    delay_distances=delay_dijkstra(graph,src)
-    delay_path=delay_distances[dest]
-    if delay_path[2]>=bw:
-        return delay_path[1]
-    bw_distances = bw_dijkstra(graph,src)
-    return bw_distances[dest][1]
+def best_stream(src_host, dest_host, type, graph, bw=0):
+    #translating hosts to switches
+    src = f's{src_host[1:]}'
+    dest = f's{dest_host[1:]}'
+    delay_distances = delay_dijkstra(graph, src)
+    delay_path = delay_distances[dest]
+    if delay_path[2] >= bw:
+        # zmiana indeksowania
+        temp = delay_path[0]
+        delay_path[0] = bw
+        delay_path[2] = temp
+        return delay_path
+    bw_distances = bw_dijkstra(graph, src)[dest]
+    if bw_distances[0] >= bw:
+        bw_distances[0] = bw
+        return bw_distances
+    return bw_distances
+
+
+def update_graph(stream, graph):
+    bw = stream[0]
+    path = stream[1]
+    # iterates through link in one way
+    for i in range(len(path) - 2):
+        node = path[i]
+        next_node = path[i + 1]
+        links = graph[node]
+        for link in links:
+            if link[0] == next_node:
+                link[1] -= bw
+    back_path = path[::-1]
+    # iterates through link backwards
+    for i in range(1, len(back_path) - 1):
+        node = path[i]
+        next_node = path[i - 1]
+        links = graph[node]
+        for link in links:
+            if link[0] == next_node:
+                link[1] -= bw
