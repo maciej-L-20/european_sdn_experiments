@@ -4,6 +4,9 @@ import flowProcessor
 import flowToOnos
 import prep
 
+#Opcjonalne TODO
+#Regex do ip
+
 graph_links_file = open('graphLinks.json', 'r')
 graph_links = json.load(graph_links_file)
 cities = prep.read_cities()
@@ -64,8 +67,8 @@ def main():
         print(accept_message)
         accept_response = input()
         if accept_response == 'Y':
-            flowToOnos.post_flow(best_path,flow_data[2],onos_ip)
-            flowProcessor.update_graph(best_flow,graph_links)
+            #flowToOnos.post_flow(best_path,flow_data[2],onos_ip)
+            flowProcessor.update_graph(best_flow,flow_data[2])
             print(sent_to_onos_message)
         elif accept_response == 'N':
             print(flow_canceled_message)
