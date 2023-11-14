@@ -65,7 +65,7 @@ def findOutPort(device,nextDevice,portMap):
 
 def flow_to_json_data(flowData,type):
     connection_criteria = "0"
-    if type=='TCP' :
+    if type=='TCP':
         connection_criteria = "6"
     elif type == 'UDP':
         connection_criteria = "11"
@@ -99,3 +99,8 @@ def post_flow(flow,type,ip):
     last_index = flow_reverse[len(flow_reverse)-1][1:]
     flow_reverse.append(f'h{last_index}')
     send_to_onos(flow_to_json_data(flow_reverse,type),ip)
+
+def flow_file_to_json_file(flow_file,output_file):
+    json_data=read_flow_file(flow_file,'portmap.json')
+    output = open(output_file,'w')
+    output.write(json_data)
