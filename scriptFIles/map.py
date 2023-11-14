@@ -26,7 +26,10 @@ def map_config():
         color = lambda lineIndex: "green" if lineIndex > 9 else "black"
         ax.plot([city1.longitude, city2.longitude], [city1.latitude, city2.latitude], alpha = 0.4,transform=ccrs.PlateCarree(),color=color(lineIndex))
         delay = City.compute_delay(city1,city2)
-        ax.text(0.5 * (city1.longitude+city2.longitude), 0.5 * (city1.latitude+city2.latitude)+0.2, delay, transform=ccrs.PlateCarree(), fontsize=8,weight='bold', color='red')
+        if lineIndex == 16:
+            ax.text(0.5 * (city1.longitude+city2.longitude-2), 0.5 * (city1.latitude+city2.latitude-1)+0.2, delay, transform=ccrs.PlateCarree(), fontsize=8,weight='bold', color='red')
+        else:
+            ax.text(0.5 * (city1.longitude+city2.longitude), 0.5 * (city1.latitude+city2.latitude)+0.2, delay, transform=ccrs.PlateCarree(), fontsize=8,weight='bold', color='red')
         lineIndex+=1
     plt.savefig('mapa.png')
 
