@@ -75,7 +75,7 @@ def read_cities():
     return cities
 
 
-def linksToGraphFile(links):
+def links_to_graph_file(links):
     linkFile = open(links, 'r')
     cities = read_cities()
     graph = {}

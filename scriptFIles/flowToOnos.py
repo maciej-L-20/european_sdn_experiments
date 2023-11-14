@@ -50,12 +50,12 @@ def read_flow_file(roadFile,portMapJson):
         for i in range(len(flowData)-1):
             device = flowData[i]
             nextDevice = flowData[i+1]
-            outPort = findOutPort(device,nextDevice,portMap)
+            outPort = find_port(device, nextDevice, portMap)
             add_flow(jsonData,device,destination,outPort,'0')
     json_data = json.dumps(jsonData, indent=4)
     return json_data
 
-def findOutPort(device,nextDevice,portMap):
+def find_port(device, nextDevice, portMap):
     devIndex = int(device[1:])
     devPorts = portMap[devIndex - 1]["ports"]
     for port in devPorts:
@@ -76,7 +76,7 @@ def flow_to_json_data(flowData,type):
     for i in range(len(flowData)-1):
         device = flowData[i]
         nextDevice = flowData[i+1]
-        outPort = findOutPort(device,nextDevice,portMap)
+        outPort = find_port(device, nextDevice, portMap)
         add_flow(jsonData,device,destination,outPort,connection_criteria)
     json_data = json.dumps(jsonData, indent=4)
     return json_data
