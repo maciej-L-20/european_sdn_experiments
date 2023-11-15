@@ -1,4 +1,4 @@
 h2 iperf -e -s -p 3789 &
 h2 iperf -e -s -u -p 1234 > logh1_h2UDPServer.lg &
 h1 iperf -e -c h2 -p 3789 -i 1 -N -S 0x08 -n 100M -l 10M > logh1_h2TCPClient.lg &
-h1 iperf -e -c h2 -p 1234 -i 1 -u -S 0x10 -t 100 -b 3000pps > logh1_h2UDPClient.lg &
+h1 iperf -e -c h2 -p 1234 -i 1 -u -S 0x10 -t 100 -b 1300pps > logh1_h2UDPClient.lg &
