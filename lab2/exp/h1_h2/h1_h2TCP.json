@@ -26,6 +26,10 @@
                     {
                         "type": "IP_PROTO",
                         "protocol": "6"
+                    },
+                    {
+                        "type": "IPV4_SRC",
+                        "ip": "10.0.0.1/32"
                     }
                 ]
             }
@@ -56,6 +60,10 @@
                     {
                         "type": "IP_PROTO",
                         "protocol": "6"
+                    },
+                    {
+                        "type": "IPV4_SRC",
+                        "ip": "10.0.0.1/32"
                     }
                 ]
             }
@@ -86,6 +94,10 @@
                     {
                         "type": "IP_PROTO",
                         "protocol": "6"
+                    },
+                    {
+                        "type": "IPV4_SRC",
+                        "ip": "10.0.0.1/32"
                     }
                 ]
             }
@@ -116,6 +128,10 @@
                     {
                         "type": "IP_PROTO",
                         "protocol": "6"
+                    },
+                    {
+                        "type": "IPV4_SRC",
+                        "ip": "10.0.0.2/32"
                     }
                 ]
             }
@@ -146,6 +162,10 @@
                     {
                         "type": "IP_PROTO",
                         "protocol": "6"
+                    },
+                    {
+                        "type": "IPV4_SRC",
+                        "ip": "10.0.0.2/32"
                     }
                 ]
             }
@@ -176,6 +196,10 @@
                     {
                         "type": "IP_PROTO",
                         "protocol": "6"
+                    },
+                    {
+                        "type": "IPV4_SRC",
+                        "ip": "10.0.0.2/32"
                     }
                 ]
             }

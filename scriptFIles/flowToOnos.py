@@ -1,10 +1,11 @@
 import json
 import requests
-def add_flow(jsonData,switchId, destHost, outPort,connection_type):
+def add_flow(jsonData,switchId, destHost, outPort,connection_type, src_host):
     switchNumber=int(switchId[1:])
     switchHex=hex(switchNumber)[2:]
     deviceId = f'of:000000000000000{switchHex}'
     destHost=f'10.0.0.{destHost[1:]}/32'
+    src_host=f'10.0.0.{src_host[1:]}/32'
     port = outPort
     new_flow = {
         "priority": 40000,
@@ -32,6 +33,10 @@ def add_flow(jsonData,switchId, destHost, outPort,connection_type):
                 {
                     "type": "IP_PROTO",
                     "protocol": connection_type
+                },
+                {
+                    "type": "IPV4_SRC",
+                    "ip": src_host
                 }
             ]
         }
@@ -47,11 +52,12 @@ def read_flow_file(roadFile,portMapJson,connectionType='0'):
     for line in flowFile:
         flowData = line.strip().split(" ")
         destination=flowData[len(flowData)-1]
+        src = flowData[0]
         for i in range(len(flowData)-1):
             device = flowData[i]
             nextDevice = flowData[i+1]
             outPort = find_port(device, nextDevice, portMap)
-            add_flow(jsonData,device,destination,outPort,connectionType)
+            add_flow(jsonData,device,destination,outPort,connectionType,src)
     json_data = json.dumps(jsonData, indent=4)
     return json_data
 
@@ -63,7 +69,7 @@ def find_port(device, nextDevice, portMap):
             return devPorts.index(port)
     return 0
 
-def flow_to_json_data(flowData,type):
+def flow_to_json_data(flowData,type="0"):
     connection_criteria = "0"
     if type=='TCP':
         connection_criteria = "6"
@@ -73,11 +79,12 @@ def flow_to_json_data(flowData,type):
     portMap = json.load(open('portmap.json','r'))
     jsonData = {"flows": []}
     destination=flowData[len(flowData)-1]
+    src=flowData[0]
     for i in range(len(flowData)-1):
         device = flowData[i]
         nextDevice = flowData[i+1]
         outPort = find_port(device, nextDevice, portMap)
-        add_flow(jsonData,device,destination,outPort,connection_criteria)
+        add_flow(jsonData,device,destination,outPort,connection_criteria,src)
     json_data = json.dumps(jsonData, indent=4)
     return json_data
 
