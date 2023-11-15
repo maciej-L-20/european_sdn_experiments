@@ -40,7 +40,7 @@ def add_flow(jsonData,switchId, destHost, outPort,connection_type):
         new_flow["selector"]["criteria"].pop(2)
     jsonData["flows"].append(new_flow)
 
-def read_flow_file(roadFile,portMapJson):
+def read_flow_file(roadFile,portMapJson,connectionType='0'):
     jsonData = {"flows": []}
     flowFile = open(roadFile,"r")
     portMap = json.load(open(portMapJson,'r'))
@@ -51,7 +51,7 @@ def read_flow_file(roadFile,portMapJson):
             device = flowData[i]
             nextDevice = flowData[i+1]
             outPort = find_port(device, nextDevice, portMap)
-            add_flow(jsonData,device,destination,outPort,'0')
+            add_flow(jsonData,device,destination,outPort,connectionType)
     json_data = json.dumps(jsonData, indent=4)
     return json_data
 
@@ -68,7 +68,7 @@ def flow_to_json_data(flowData,type):
     if type=='TCP':
         connection_criteria = "6"
     elif type == 'UDP':
-        connection_criteria = "11"
+        connection_criteria = "17"
 
     portMap = json.load(open('portmap.json','r'))
     jsonData = {"flows": []}
@@ -104,3 +104,12 @@ def flow_file_to_json_file(flow_file,output_file):
     json_data=read_flow_file(flow_file,'portmap.json')
     output = open(output_file,'w')
     output.write(json_data)
+
+#tcp = read_flow_file("h1_h2TCP.txt","portmap.json",'6')
+#udp = read_flow_file("h1_h2UDP.txt","portmap.json",'17')
+
+#tcp_file = open("../lab2/exp/h1_h2/h1_h2TCP.json", "w")
+#tcp_file.write(tcp)
+
+#udp_file = open("../lab2/exp/h1_h2/h1_h2UDP.json", "w")
+#udp_file.write(udp)

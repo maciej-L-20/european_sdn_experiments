@@ -8,7 +8,7 @@ udp_graph = copy.deepcopy(start_graph)
 tcp_graph = copy.deepcopy(start_graph)
 
 # słownik przechowywujący wszystkie połączenia (potrzebne do liczenia bw później)
-flows = {f's{i}':{} for i in range(1,10)}
+flows = {f's{i}':{} for i in range(1,11)}
 
 def bw_dijkstra(type, start):
     # Inicjalizacja odległości od startowego wierzchołka do pozostałych
@@ -43,7 +43,7 @@ def bw_dijkstra(type, start):
     for node, key in distances.items():
         key_copy = key[1][:]
         key_copy.append(node)
-        key_copy.append(f'h{node[1]}')
+        key_copy.append(f'h{node[1:]}')
         distances[node][1] = key_copy
     return distances
 
@@ -83,7 +83,7 @@ def delay_dijkstra(type, start):
     for node, key in distances.items():
         key_copy = key[1][:]
         key_copy.append(node)
-        key_copy.append(f'h{node[1]}')
+        key_copy.append(f'h{node[1:]}')
         distances[node][1] = key_copy
     return distances
 
@@ -180,7 +180,9 @@ def compute_link_bw(start,end,type):
     max_tcp_bandwidth, connected_tcp_flows, udp_bandwidth_sum, sum_of_used_bandwidth = compute_flow_info(start,end)
     original = compute_original_bw(start,end)
     if type == "UDP":
-        return original - sum_of_used_bandwidth
+        if original - (max_tcp_bandwidth * connected_tcp_flows) - udp_bandwidth_sum < 0:
+            return 0
+        return original - (max_tcp_bandwidth * connected_tcp_flows) - udp_bandwidth_sum
     if type == "TCP":
         left_bandwidth = (original - udp_bandwidth_sum) / (connected_tcp_flows+1)
         if left_bandwidth >= max_tcp_bandwidth: 
