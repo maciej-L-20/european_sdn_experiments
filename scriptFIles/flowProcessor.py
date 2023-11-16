@@ -108,6 +108,8 @@ def best_stream(src_host, dest_host, type, graph, bw=0):
 
 
 def update_graph(stream, type):
+    if type not in ["TCP","UDP"]:
+        type = "UDP"
     update_flows(stream, type)
     path = stream[1]
     ## TODO to się da w jednej pętli 100%
