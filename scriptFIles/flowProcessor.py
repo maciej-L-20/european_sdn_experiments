@@ -88,7 +88,7 @@ def delay_dijkstra(type, start):
     return distances
 
 
-def best_stream(src_host, dest_host, type, graph, bw=0):
+def best_stream(src_host, dest_host, type, bw=0):
     #translating hosts to switches
     src = f's{src_host[1:]}'
     dest = f's{dest_host[1:]}'

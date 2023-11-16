@@ -7,8 +7,6 @@ import prep
 #Opcjonalne TODO
 #Regex do ip
 
-graph_links_file = open('graphLinks.json', 'r')
-graph_links = json.load(graph_links_file)
 cities = prep.read_cities()
 
 onos_ip_message = "Enter the onos controller IP."
@@ -61,7 +59,7 @@ def main():
         print(ask_message)
         flow_data = input_text_to_stream(input())
         best_flow = flowProcessor.best_stream(src_host=flow_data[0], dest_host=flow_data[1], type=flow_data[2],
-                                              bw=int(flow_data[3]), graph=graph_links)
+                                              bw=int(flow_data[3]))
         best_bw, best_path, best_delay = best_flow
         print(best_flow_message.format(legible_path(best_path), best_bw, best_delay))
         print(accept_message)
