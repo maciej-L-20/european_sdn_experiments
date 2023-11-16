@@ -1,0 +1,21 @@
+Eksperyment w którym wysłałem
+h5 h9 UDP 15
+h6 h10 UDP 15
+
+dostałem ścieżki
+Monaco => Dublin
+Bern => Paris => London => Oslo
+
+wyniki na ścieżkach
+
+zwiększyłem rozmiar pliku trzykrotnie dla miarodajnych wyników
+
+[  3] local 10.0.0.5 port 3789 connected with 10.0.0.9 port 45497
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-99.1960 sec   181 MBytes  15.3 Mbits/sec   0.596 ms 1030/130000 (0.79%) 19.741/10.383/275.459/31.519 ms 1300 pps  96.82
+[  3] 0.0000-99.1960 sec  2 datagrams received out-of-order
+
+------------------------------------------------------------
+[  3] local 10.0.0.6 port 1234 connected with 10.0.0.10 port 54283
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-98.9037 sec   180 MBytes  15.3 Mbits/sec   0.696 ms 1421/130000 (1.1%) 25.192/13.774/281.169/32.126 ms 1300 pps  75.86

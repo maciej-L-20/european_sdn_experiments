@@ -1,0 +1,14 @@
+Eksperyment w którym wysłałem
+h1 h2 UDP 15
+h1 h2 TCP 20
+
+dostałem ścieżki
+Prague => Paris
+Prague => Warsaw => London => Paris
+
+wyniki na ścieżkach
+
+TCP:
+   19.1 Mbps prędkość łącza      44s czas trwania
+UDP:
+   15.2 Mbps prędkość łącza      0.060 ms jitter        0.86% utrata pakietów      87ms opóźnienie

@@ -1,0 +1,9 @@
+obniżenie h1 h2 do 10
+obniżenie h8 h6 do 5
+h7 h2 TCP 10
+h8 h2 TCP 10
+
+
+Oczekiwane rezultaty:
+h7 h3 h1 h2 git
+h8 h3 h4 h2 git

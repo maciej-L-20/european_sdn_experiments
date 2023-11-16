@@ -1,0 +1,20 @@
+Eksperyment w którym wysłałem
+h8 h9 TCP 5
+h3 h4 TCP 12
+h1 h7 UDP 15
+h5 h10 UDP 15
+
+dostałem ścieżki
+Lviv => Warsaw => London => Dublin
+Warsaw => Prague => Paris => London
+Prague => Bern => Lviv => Vilnius
+Monaco => Dublin => Oslo
+
+wyniki na ścieżkach
+
+TCP:
+    17.8Mbps 47s
+    17.8Mbps 47s
+UDP:
+    14.9Mbps    0.593ms jitter     2.3% loss        276ms opóźnienie
+    14.8Mbps    0.397ms jitter     2.9% loss        272ms opóźnienie

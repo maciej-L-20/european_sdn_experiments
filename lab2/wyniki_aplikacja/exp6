@@ -1,0 +1,15 @@
+Eksperyment w którym wysłałem
+h5 h9 TCP 20
+h6 h10 TCP 20
+
+dostałem ścieżki
+Prague => Paris
+Prague => Warsaw => London => Paris
+
+wyniki na ścieżkach
+
+zwiększyłem rozmiar pliku trzykrotnie dla miarodajnych wyników
+
+TCP:
+   18.5 Mbps prędkość łącza      68s czas trwania
+   18.3 Mbps prędkość łącza      68s czas trwania

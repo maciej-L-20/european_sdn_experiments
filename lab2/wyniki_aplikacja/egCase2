@@ -1,0 +1,14 @@
+Eksperyment w którym wysłałem
+h7 h2 TCP 10
+h8 h2 TCP 10
+
+dostałem ścieżki
+Vilnius => Warsaw => Prague => Paris
+Lviv => Warsaw => London => Paris
+
+pliki 100MB
+
+wyniki na ścieżkach
+TCP:
+    10.5Mbps 79.8s
+    18.4Mbps 45.5s

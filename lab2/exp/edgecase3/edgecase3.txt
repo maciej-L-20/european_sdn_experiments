@@ -1,0 +1,10 @@
+DUŻO połączeń
+stare linksy 20Mbps
+
+
+h1 h2 UDP 10
+h4 h2 TCP 10
+h3 h9 TCP 5
+h5 h7 TCP 10
+h6 h7 UDP 15
+h8 h4 UDP 10
