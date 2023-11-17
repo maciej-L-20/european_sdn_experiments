@@ -16,25 +16,21 @@ def bw_dijkstra(type, start):
         graph = tcp_graph
     else:
         graph = udp_graph
+
     distances = {vertex: [0, [], 0] for vertex in graph}
     distances[start][0] = 0
-
-    # Kolejka priorytetowa do przechowywania wierzchołków i ich odległości
     priority_queue = [(float('infinity'), start, 0)]
 
     while priority_queue:
         current_distance, current_vertex, current_delay = heapq.heappop(priority_queue)
         current_path = distances[current_vertex][1][:]
         current_path.append(current_vertex)
-        # Pominięcie wierzchołków, które zostały już odwiedzone
         if current_distance < distances[current_vertex][0]:
             continue
-
-        # Iteracja po sąsiadach aktualnego wierzchołka
         for neighbor, weight, delay in graph[current_vertex]:
             distance = min(current_distance, weight)
             delay_distance = current_delay + delay
-            # Aktualizacja odległości, jeśli znaleziono krótszą ścieżkę
+            # Aktualizacja odległości
             if distance > distances[neighbor][0]:
                 distances[neighbor][0] = distance
                 distances[neighbor][1] = current_path
@@ -49,31 +45,26 @@ def bw_dijkstra(type, start):
 
 
 def delay_dijkstra(type, start):
-    # Inicjalizacja odległości od startowego wierzchołka do pozostałych
     if type == "TCP":
         graph = tcp_graph
     else:
         graph = udp_graph
+
     distances = {vertex: [float('infinity'), [], 0] for vertex in graph}
     distances[start][0] = 0
-
-    # Kolejka priorytetowa do przechowywania wierzchołków i ich odległości
     priority_queue = [(0, start, float('infinity'))]
 
     while priority_queue:
         current_distance, current_vertex, current_bw = heapq.heappop(priority_queue)
         current_path = distances[current_vertex][1][:]
         current_path.append(current_vertex)
-        # Pominięcie wierzchołków, które zostały już odwiedzone
         if current_distance > distances[current_vertex][0]:
             continue
-
-        # Iteracja po sąsiadach aktualnego wierzchołka
         for neighbor, bw, delay in graph[current_vertex]:
             distance = current_distance + delay
             bw_distance = min(current_bw, bw)
 
-            # Aktualizacja odległości, jeśli znaleziono krótszą ścieżkę
+            # Aktualizacja odległości
             if distance < distances[neighbor][0]:
                 distances[neighbor][0] = distance
                 distances[neighbor][1] = current_path
@@ -144,10 +135,10 @@ def update_graph(stream, type):
                 link[1] = new_udp_bw
     #LEFT for testing purpose
     #DEBUG
-    print("tcp_graph")
-    print(tcp_graph)
-    print("udp_graph")
-    print(udp_graph)
+    #print("tcp_graph")
+    #print(tcp_graph)
+    #print("udp_graph")
+    #print(udp_graph)
     #END DEBUG
 
 

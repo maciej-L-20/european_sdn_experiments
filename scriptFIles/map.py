@@ -31,6 +31,6 @@ def map_config():
         else:
             ax.text(0.5 * (city1.longitude+city2.longitude), 0.5 * (city1.latitude+city2.latitude)+0.2, delay, transform=ccrs.PlateCarree(), fontsize=8,weight='bold', color='red')
         lineIndex+=1
-    plt.savefig('mapa.png')
+    plt.savefig('mapa_lab2.png')
 
 map_config()
