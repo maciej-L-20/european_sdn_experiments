@@ -1,0 +1,4 @@
+h5 iperf -e -s -u -p 1111 > exp5h5h9UDP.lg&
+h6 iperf -e -s -u -p 7000 > exp5h6h10UDP.lg &
+h9 iperf -e -c h5 -p 1111 -i 1 -u -S 0x10 -t 15 -b 1200pps &
+h10 iperf -e -c h6 -p 7000 -i 1 -u -S 0x10 -t 15 -b 1200pps &

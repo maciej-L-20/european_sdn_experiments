@@ -1,0 +1,4 @@
+h5 iperf -e -s -p 1111 &
+h6 iperf -e -s -p 7000 &
+h9 iperf -e -c h5 -p 1111 -i 1 -N -S 0x08 -n 150M -l 10M > aplikacja/exp6/exp5h5h9TCP.lg &
+h10 iperf -e -c h6 -p 7000 -i 1 -N -S 0x08 -n 150M -l 10M > aplikacja/exp6/exp5h6h10TCP.lg &

@@ -1,0 +1,12 @@
+h2 iperf -e -s -u -p 1234 > logh4_h2UDPServer.lg &
+h2 iperf -e -s -p 3789 &
+h9 iperf -e -s -p 2137 &
+h7 iperf -e -s -p 6969 &
+h7 iperf -e -s -u -p 1111 > logh6_h7UDPServer.lg &
+h4 iperf -e -s -u -p 2222 > logh8_h4UDPServer.lg &
+h1 iperf -e -c h2 -p 1234 -i 1 -u -S 0x10 -t 100 -b 900pps &
+h4 iperf -e -c h2 -p 3789 -i 1 -N -S 0x08 -n 100M -l 10M > logh4_h2TCPClient.lg &
+h3 iperf -e -c h9 -p 2137 -i 1 -N -S 0x08 -n 100M -l 10M > logh3_h9TCPClient.lg &
+h5 iperf -e -c h7 -p 6969 -i 1 -N -S 0x08 -n 100M -l 10M > logh5_h7TCPClient.lg &
+h6 iperf -e -c h7 -p 1111 -i 1 -u -S 0x10 -t 100 -b 1300pps &
+h8 iperf -e -c h4 -p 2222 -i 1 -u -S 0x10 -t 100 -b 900pps &

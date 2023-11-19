@@ -1,0 +1,31 @@
+------------------------------------------------------------
+Client connecting to 10.0.0.10, UDP port 3789 with pid 9275
+Sending 1470 byte datagrams, IPG target: 666.67 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.4 port 34272 connected with 10.0.0.10 port 3789
+[ ID] Interval            Transfer     Bandwidth      Write/Err  PPS
+[  3] 0.0000-1.0000 sec  2.10 MBytes  17.7 Mbits/sec  1501/0     1501 pps
+[  3] 1.0000-2.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 2.0000-3.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 3.0000-4.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 4.0000-5.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 5.0000-6.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 6.0000-7.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 7.0000-8.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 8.0000-9.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 9.0000-10.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 10.0000-11.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 11.0000-12.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 12.0000-13.0000 sec  2.10 MBytes  17.6 Mbits/sec  1499/0     1499 pps
+[  3] 13.0000-14.0000 sec  2.09 MBytes  17.5 Mbits/sec  1489/0     1485 pps
+[  3] 14.0000-15.0000 sec  2.12 MBytes  17.8 Mbits/sec  1512/0     1516 pps
+[  3] 15.0000-16.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 16.0000-17.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1499 pps
+[  3] 17.0000-18.0000 sec  2.10 MBytes  17.6 Mbits/sec  1500/0     1500 pps
+[  3] 18.0000-19.0000 sec  2.06 MBytes  17.3 Mbits/sec  1472/0     1448 pps
+[  3] 19.0000-20.0000 sec  2.14 MBytes  18.0 Mbits/sec  1528/0     1555 pps
+[  3] 0.0000-20.0007 sec  42.1 MBytes  17.6 Mbits/sec  30001/0     1499 pps
+[  3] Sent 30001 datagrams
+[  3] Server Report:
+[  3] 0.0000-19.9964 sec  42.1 MBytes  17.6 Mbits/sec   0.074 ms    0/30001 (0%)  9.135/ 8.175/79.303/ 0.328 ms 1500 pps  241.42

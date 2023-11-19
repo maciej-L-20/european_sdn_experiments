@@ -1,0 +1,8 @@
+------------------------------------------------------------
+Server listening on UDP port 7000 with pid 13060
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.6 port 7000 connected with 10.0.0.10 port 41201
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-17.4630 sec  10.0 MBytes  4.81 Mbits/sec   1.279 ms 10852/17997 (60%) 2192.154/14.872/2541.834/600.715 ms  409 pps  0.27

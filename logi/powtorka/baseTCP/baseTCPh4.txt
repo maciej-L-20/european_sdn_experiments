@@ -1,0 +1,2 @@
+h10 iperf -e -s -p 3789 &
+h4 iperf -e -c h10 -p 3789 -i 1 -N -S 0x08 -n 150M > powtorka/baseTCP/log1.lg & 

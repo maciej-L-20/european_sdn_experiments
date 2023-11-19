@@ -1,0 +1,8 @@
+------------------------------------------------------------
+Server listening on UDP port 1111 with pid 35032
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.7 port 1111 connected with 10.0.0.6 port 38387
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-100.0078 sec   182 MBytes  15.3 Mbits/sec   0.219 ms    0/130001 (0%) 16.167/12.851/190.862/14.618 ms 1299 pps  118.20

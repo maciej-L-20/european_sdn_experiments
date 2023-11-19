@@ -1,0 +1,2 @@
+h10 iperf -e -u -s -p 3789 > powtorka/bigUDP/log2.lg &
+h4 iperf -e -c h10 -p 3789 -i 1 -u -S 0x10 -t 20 -l 2000B -b 1000pps &

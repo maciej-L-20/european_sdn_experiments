@@ -1,0 +1,3 @@
+h2 iperf -e -s -p 1111 &
+h7 iperf -e -c h2 -p 1111 -i 1 -N -S 0x08 -n 100M -l 10M > aplikacja/egCase2h2h7TCP.lg &
+h8 iperf -e -c h2 -p 1111 -i 1 -N -S 0x08 -n 100M -l 10M > aplikacja/egCase2h2h8TCP.lg &

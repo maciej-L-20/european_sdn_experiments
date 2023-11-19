@@ -1,0 +1,8 @@
+------------------------------------------------------------
+Server listening on UDP port 2222 with pid 35036
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.4 port 2222 connected with 10.0.0.8 port 35658
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-100.5393 sec   126 MBytes  10.5 Mbits/sec   1.536 ms  334/90000 (0.37%) 615.644/12.827/867.827/131.795 ms  891 pps  2.13

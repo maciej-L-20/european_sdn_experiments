@@ -1,0 +1,14 @@
+------------------------------------------------------------
+Client connecting to 10.0.0.3, UDP port 3789 with pid 3013
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+-----------[  3] local 10.0.0.3 port 3789 connected with 10.0.0.2 port 39394
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-5.0017 sec   640 KBytes  1.05 Mbits/sec   0.563 ms    0/  446 (0%) 10.777/10.081/12.668/ 0.710 ms   89 pps  12.16
+c  89/0       89 pps
+[  3] 2.0000-3.0000 sec   128 KBytes  1.05 Mbits/sec  89/0       89 pps
+[  3] 3.0000-4.0000 sec   128 KBytes  1.05 Mbits/sec  89/0       89 pps
+[  3] 0.0000-5.0023 sec   640 KBytes  1.05 Mbits/sec  446/0       89 pps
+[  3] Sent 446 datagrams
+[  3] Server Report:
+[  3] 0.0000-5.0017 sec   640 KBytes  1.05 Mbits/sec   0.563 ms    0/  446 (0%) 10.777/10.081/12.668/ 0.710 ms   89 pps  12.16

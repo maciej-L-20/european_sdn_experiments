@@ -1,0 +1,4 @@
+h5 iperf -e -s -u -p 3789 > aplikacja/exp7h5_h9UDPServer.lg &
+h6 iperf -e -s -u -p 1234 > aplikacja/exp7h6_h10UDPServer.lg &
+h9 iperf -e -c h5 -p 3789 -i 1 -u -S 0x10 -t 100 -b 1300pps &
+h10 iperf -e -c h6 -p 1234 -i 1 -u -S 0x10 -t 100 -b 1300pps &

@@ -1,0 +1,8 @@
+------------------------------------------------------------
+Server listening on UDP port 3789 with pid 9514
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.10 port 3789 connected with 10.0.0.4 port 46241
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-19.9869 sec  28.0 MBytes  11.8 Mbits/sec   0.034 ms    6/20000 (0.03%)  8.395/ 8.183/25.830/ 0.457 ms 1000 pps  175.17

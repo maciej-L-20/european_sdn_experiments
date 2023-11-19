@@ -1,0 +1,8 @@
+------------------------------------------------------------
+Server listening on UDP port 1234 with pid 10964
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.2 port 1234 connected with 10.0.0.1 port 55903
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-100.6241 sec   225 MBytes  18.8 Mbits/sec   0.262 ms 139265/300001 (46%) 621.583/ 6.754/1413.298/75.914 ms 1597 pps  3.78

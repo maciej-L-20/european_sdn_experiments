@@ -1,0 +1,2 @@
+h9 iperf -e -s -p 3789 &
+h8 iperf -e -c h9 -p 3789 -i 1 -N -S 0x08 -n 100M -w 50k > powtorka/winTCP/log0.lg &

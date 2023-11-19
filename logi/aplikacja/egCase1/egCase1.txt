@@ -1,0 +1,8 @@
+h9 iperf -e -s -p 6969 &
+h4 iperf -e -s -p 3789 &
+h7 iperf -e -s -u -p 1234 > aplikacja/logh1_h7UDPServer.lg &
+h10 iperf -e -s -u -p 2137 > aplikacja/logh5_h10UDPServer.lg &
+h8 iperf -e -c h9 -p 6969 -i 1 -N -S 0x08 -n 100M -l 10M > aplikacja/logh8_h9TCPClient.lg &
+h3 iperf -e -c h4 -p 3789 -i 1 -N -S 0x08 -n 100M -l 10M > aplikacja/logh3_h4TCPClient.lg &
+h1 iperf -e -c h7 -p 1234 -i 1 -u -S 0x10 -t 100 -b 1300pps &
+h5 iperf -e -c h10 -p 2137 -i 1 -u -S 0x10 -t 100 -b 1300pps &

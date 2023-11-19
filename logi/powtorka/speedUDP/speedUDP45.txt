@@ -1,0 +1,2 @@
+h10 iperf -e -u -s -p 3789 > powtorka/speedUDP/log2.lg &
+h4 iperf -e -c h10 -p 3789 -i 1 -u -S 0x10 -t 20 -b 4500pps &
