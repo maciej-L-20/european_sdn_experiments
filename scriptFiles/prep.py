@@ -93,10 +93,4 @@ def links_to_graph_file(links):
     output_file = open("graphLinks.json", 'w')
     return json.dump(graph, output_file)
 
-def cities_to_file(file_name):
-    cities = read_cities()
-    output_file = open(file_name,'w')
-    json.dump(cities,output_file)
-
 links_to_graph_file(links="links")
-#cities_to_file('cities_extended.json')

@@ -112,6 +112,7 @@ def flow_file_to_json_file(flow_file,output_file):
     output = open(output_file,'w')
     output.write(json_data)
 
+#left for test purpose
 #tcp = read_flow_file("h1_h2TCP.txt","portmap.json",'6')
 #udp = read_flow_file("h1_h2UDP.txt","portmap.json",'17')
 

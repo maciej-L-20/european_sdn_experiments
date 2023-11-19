@@ -1,6 +1,15 @@
 # SCHT laboratorium
 Katalog zawiera skrypty i wyniki testów z laboratorium nr.1 i nr.2 z przedmiotu Sieci i chmury teleinformatyczne, wykonane przez Macieja Lipskiego i Jakuba Szwedę.
-Poniżej opisano zawartość poszczególnych folderów.
+Poniżej opisano zawartość poszczególnych folderów. W celu uruchomienia aplikacji do kierowania strumieni, należy uruchomić skrypt userInterface.py. Aby uruchomić sieć należy:
+1. Przenieść na maszynę wirtualną skrypt setup.sh
+2. Uruchomić serwer pythona na własnym hoście w folderze scriptFiles (python3 -m http.server)
+3. Przenieść na maszynę wirtualną skrypt setup.sh
+4. Zmienić uprawnienia skryptu setup.sh (chmod +x setup.sh)
+5. Uruchomić skrypt setup.sh z parametrem -h <ip hosta z serwerem w folderze scriptFile>
+6. Uruchomić kontroler ONOS
+7. Uruchomić sieć mininet wskazując jako plik definiujący topologię main.py (może to potrwać dłużej niż zwykle)
+komendą ,,sudo -E mn --custom=main.py --topo mytopo --link tc --mac --switch ovs,protocols=OpenFlow14 --controller=remote,ip=<IP MASZYNY> --arp"
+8. Uruchomić na własnym hoście skrypt userInterface.py (to także może chwilę potrwać)
 
 ## scriptFiles
 Katalog zawiera wszystkie skrypty wykonane w ramach laboratorium oraz pliki zawierające dane potrzebne do ich działania.
@@ -17,7 +26,7 @@ Katalog zawiera wszystkie skrypty wykonane w ramach laboratorium oraz pliki zawi
 - [ ] **OnosAddFlows.sh** - skrypt analogiczny do onosFlows.bat dla systemów UNIX
 - [ ] **cities** - plik z listą miast w sieci
 - [ ] **links** - plik z listą łączy w sieci
-- [ ] **setup.sh** - skrypt, który uruchomiony na masznie wirtualnej, po uruchomieniu serwera http na hoście, pobiera z niego potrzebne do startu naszej sieci mininet pliki oraz biblioteki. Przy uruchomieniu podać parametr -h <ip_hosta>
+- [ ] **setup.sh** - skrypt, który uruchomiony na masznie wirtualnej, po uruchomieniu serwera http na hoście, pobiera z niego potrzebne do startu naszej sieci mininet pliki oraz biblioteki. Przy uruchomieniu należy podać parametr -h <ip_hosta>
 
 ## lab2
 Katalog ze skryptami iperf i wynikami testów z laboratorium nr.2
@@ -32,5 +41,12 @@ Katalog ze skryptami iperf i wynikami testów z laboratorium nr.1
 - [ ] **pingResults** -  katalog z wynikami testów wykonanych z wykorzystaniem komendy Ping
 - [ ] **experiments** - skrypty uruchamiające odpowiednie generatory ruchu Iperf na potrzeby eksperymentów
 - [ ] **task4** - wyniki testów z zadania 4. laboratorium nr.1
+
+## logi
+Katalog z logami wynikowymi testów
+-[ ] **aplikacja** - wyniki testów wykonanych dla sesji zestawionych z wykorzystaniem przygotowanej aplikacji
+- [ ] **powtorks** - wyniki powtórzonych testów z laboratorium nr.1
+- [ ] **inneLogi** - pozostałe wyniki testów
+
 ## images
 Katalog z wykonanymi z wykorzystaniem bilbioteki Cartopy mapami sieci

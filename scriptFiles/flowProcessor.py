@@ -11,7 +11,6 @@ tcp_graph = copy.deepcopy(start_graph)
 flows = {f's{i}':{} for i in range(1,11)}
 
 def bw_dijkstra(type, start):
-    # Inicjalizacja odległości od startowego wierzchołka do pozostałych
     if type == "TCP":
         graph = tcp_graph
     else:
